@@ -1,0 +1,39 @@
+{% extends 'account/base.html' %}
+{% block content %}
+
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Add Department</h5>
+
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'departmentList' %}">Department</a></li>
+
+                    </ol>
+
+
+            </div>
+            <div class="card-body">
+                {% if messages %}
+                    {%for message in messages %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">
+                            <ul class="messages">
+                                <li class="text-center">{{ message }}</li>
+                            </ul>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <form action="{% url 'departmentAdd' %}" method="post" class="row g-3"> {% csrf_token %}
+                      <div class="col-10">
+                          <label for="inputNanme4" class="form-label">Department Name</label>
+                          <input type="text" class="form-control" id="inputNanme4" name="dept_name">
+                       </div>
+                      <div class="text-center">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="reset" class="btn btn-secondary">Reset</button>
+                      </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

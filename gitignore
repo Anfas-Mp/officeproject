@@ -1,0 +1,7 @@
+venv
+.idea
+__pycache__
+dbbayroot.db
+media
+migrations
+db.OMS
